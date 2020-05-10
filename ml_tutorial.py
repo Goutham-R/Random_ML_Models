@@ -31,4 +31,4 @@ y_predict=clf.predict(x_test)
 print (r2_score(y_test,y_predict))
 print(mean_squared_error(y_test,y_predict))
 joblib.dump(clf, 'first_model.pkl')         #saves this model to a file
-#clf2 = joblib.load('rf_regressor.pkl')     #to load the model for future use
+#clf2 = joblib.load('first_model.pkl')     #to load the model for future use
