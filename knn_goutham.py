@@ -18,3 +18,18 @@ clf.fit(x_train,y_train)
 y_predict=clf.predict(x_test)
 from sklearn.metrics import mean_squared_error
 print(mean_squared_error(y_test,y_predict))
+
+#SVC Model
+from sklearn.svm import SVC
+sv=SVC(C=1,gamma=0.1,kernel='linear')
+sv.fit(X_train,y_train)
+y_pred=sv.predict(X_test)
+print(mean_squared_error(y_test,y_pred)) 
+print(classification_report(y_test,y_pred))
+from sklearn.model_selection import GridSearchCV
+param_grid={'C':[1,0.1,0.01],'gamma':[0.1,1,0.01,0.001],'kernel':['linear','rbf']}
+gs=GridSearchCV(SVC(),param_grid)
+gs.fit(X_train,y_train)
+y_pred=gs.predict(X_test)
+print(mean_squared_error(y_test,y_pred)) 
+print(classification_report(y_test,y_pred))
